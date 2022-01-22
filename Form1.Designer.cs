@@ -39,6 +39,9 @@ namespace Kolo_fortuny
             this.label1 = new System.Windows.Forms.Label();
             this.wylosowano = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.GraczLabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +103,11 @@ namespace Kolo_fortuny
             // 
             this.money.AutoSize = true;
             this.money.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.money.Location = new System.Drawing.Point(720, 292);
+            this.money.Location = new System.Drawing.Point(807, 361);
             this.money.Name = "money";
-            this.money.Size = new System.Drawing.Size(27, 32);
+            this.money.Size = new System.Drawing.Size(52, 32);
             this.money.TabIndex = 5;
-            this.money.Text = "0";
+            this.money.Text = "0 zł";
             // 
             // label1
             // 
@@ -137,11 +140,43 @@ namespace Kolo_fortuny
             this.label2.TabIndex = 8;
             this.label2.Text = "\\/";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(674, 292);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 32);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Gracz: ";
+            // 
+            // GraczLabel
+            // 
+            this.GraczLabel.AutoSize = true;
+            this.GraczLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GraczLabel.Location = new System.Drawing.Point(765, 292);
+            this.GraczLabel.Name = "GraczLabel";
+            this.GraczLabel.Size = new System.Drawing.Size(0, 32);
+            this.GraczLabel.TabIndex = 10;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(674, 361);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(132, 32);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "Stan konta:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 956);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.GraczLabel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.wylosowano);
             this.Controls.Add(this.label1);
@@ -172,6 +207,9 @@ namespace Kolo_fortuny
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label wylosowano;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label GraczLabel;
+        private System.Windows.Forms.Label label4;
     }
 }
 

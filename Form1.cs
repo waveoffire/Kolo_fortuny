@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -14,9 +15,14 @@ namespace Kolo_fortuny
     public partial class Form1 : Form
     {
         char litera;
-        Haslo haslo2 = new Haslo("Programowanie obiektowe","Przedmioty");
+        static string[] lines = File.ReadAllLines("hasla.txt");
+        static Random r = new Random();
+        static int randomLineNumber = r.Next(0, lines.Length - 1);
+        static string line = lines[randomLineNumber];
+
+        Haslo haslo2 = new Haslo(line.Split(";")[1], line.Split(";")[0]);
         Kolo kolo2 = new Kolo();
-        Gracz gracz2 = new Gracz();
+        Gracz gracz2 = new Gracz("Marek");
 
         int nagroda = 0;
 
@@ -60,7 +66,7 @@ namespace Kolo_fortuny
             }
             else
             {
-                Potwierdz.Text = "Potwierdz";
+                Potwierdz.Text = "Potwierdź";
             }
         }
 
@@ -68,14 +74,14 @@ namespace Kolo_fortuny
         {
             if (kolo2.klik == true) 
             { 
-                if (Potwierdz.Text == "Potwierdz") 
+                if (Potwierdz.Text == "Potwierdź") 
                 {
                     var zgadniete = haslo2.zgadnij(litera);
                     if (zgadniete > 0) 
                     { 
                         HasloLabel.Text = haslo2.Wyswietl();
                         gracz2.dodaj(zgadniete * nagroda);
-                        money.Text=gracz2.Wyswietl();
+                        money.Text=gracz2.Wyswietl()+" zł";
                     }
                     kolo2.klik = false;
                 }
@@ -83,7 +89,7 @@ namespace Kolo_fortuny
                 {
                     var zgadniete = haslo2.zgadnij(litera);
                     gracz2.kup(200);
-                    money.Text = gracz2.Wyswietl();
+                    money.Text = gracz2.Wyswietl() + " zł";
                     HasloLabel.Text = haslo2.Wyswietl();
                  }        
             }
@@ -104,7 +110,10 @@ namespace Kolo_fortuny
                     pictureBox1.Image = kolo2.RotateImage(img, l);
                     await Task.Delay(1 * ((i + 1) / 100));
                 }
-                wylosowano.Text = nagroda.ToString();
+                wylosowano.Text = nagroda.ToString() + " zł";
+
+
+
             }
         }
 
@@ -114,6 +123,8 @@ namespace Kolo_fortuny
 
             
         }
+
+
     }
 
 }

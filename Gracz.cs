@@ -6,10 +6,16 @@ namespace Kolo_fortuny
 {
     public class Gracz
     {
-        string name;
+        public Gracz(string _name)
+        {
+            name = _name;
+        }
+        public string name;
         private int money;
         public void kup(int ile) {
-            money -= ile;
+            if (money - ile > 0) { 
+                money -= ile;
+            }
         }
         public void dodaj(int ile) {
             money += ile;
