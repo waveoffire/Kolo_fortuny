@@ -1,0 +1,17 @@
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\bin\Debug\netcoreapp3.1\Kolo_fortuny.exe
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\bin\Debug\netcoreapp3.1\Kolo_fortuny.deps.json
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\bin\Debug\netcoreapp3.1\Kolo_fortuny.runtimeconfig.json
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\bin\Debug\netcoreapp3.1\Kolo_fortuny.runtimeconfig.dev.json
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\bin\Debug\netcoreapp3.1\Kolo_fortuny.dll
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\bin\Debug\netcoreapp3.1\Kolo_fortuny.pdb
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.csproj.AssemblyReference.cache
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.Form1.resources
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.Properties.Resources.resources
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.csproj.GenerateResource.cache
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.GeneratedMSBuildEditorConfig.editorconfig
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.AssemblyInfoInputs.cache
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.AssemblyInfo.cs
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.csproj.CoreCompileInputs.cache
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.dll
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.pdb
+E:\studia\c#\Kolo_fortuny\Kolo_fortuny\obj\Debug\netcoreapp3.1\Kolo_fortuny.genruntimeconfig.cache
