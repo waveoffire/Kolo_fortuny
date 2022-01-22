@@ -8,6 +8,12 @@ namespace Kolo_fortuny
     {
 
 
-        public void start() { }
+        public void start()
+        {
+
+
+            
+
+        }
     }
 }

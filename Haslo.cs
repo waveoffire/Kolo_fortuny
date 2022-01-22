@@ -25,8 +25,9 @@ namespace Kolo_fortuny
                 {
                     temp = temp + "\n";
                 }
-                else { 
-                temp = temp + " " + c + " ";
+                else 
+                { 
+                    temp = temp + " " + c + " ";
                 }
             } 
             return temp.ToUpper();
@@ -52,10 +53,9 @@ namespace Kolo_fortuny
         {
             litera = Char.ToLower(litera);
             int zgadnieto = 0;
-               string temp = "";
+            string temp = "";
             for (int counter = 0; counter < encrypted_text.Length; counter++)
-            {
-                
+            { 
                 if (encrypted_text[counter] == 95)
                 {
                     if(text[counter] == litera)
@@ -74,11 +74,7 @@ namespace Kolo_fortuny
                 }
             }
             encrypted_text = temp;
-
-
             return zgadnieto;
         }
     }
-
-
 }

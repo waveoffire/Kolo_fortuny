@@ -7,10 +7,16 @@ namespace Kolo_fortuny
     public class Gracz
     {
         string name;
-        int money;
-        public void kup(int ile) { 
-        
+        private int money;
+        public void kup(int ile) {
+            money -= ile;
         }
-        public void dodaj(int ile) { }
+        public void dodaj(int ile) {
+            money += ile;
+        }
+        public string Wyswietl()
+        {
+            return money.ToString();
+        }
     }
 }
