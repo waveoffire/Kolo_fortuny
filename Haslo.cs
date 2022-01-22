@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace Kolo_fortuny
 {
@@ -19,11 +20,18 @@ namespace Kolo_fortuny
         public string Wyswietl()
         {
             string temp = "";
+            int ilosc = 0;
             foreach (char c in encrypted_text)
             {
                 if (c == 32)
                 {
+                    if (ilosc % 3 == 2) { 
                     temp = temp + "\n";
+                    }
+                    else{
+                        temp = temp + "   ";
+                    }
+                    ilosc++;
                 }
                 else 
                 { 
@@ -75,6 +83,18 @@ namespace Kolo_fortuny
             }
             encrypted_text = temp;
             return zgadnieto;
+        }
+
+        public void zgadnijCalosc(string _haslo)
+        {
+            if (_haslo.ToLower() == text.ToLower())
+            {
+                MessageBox.Show("Wygrywasz");
+            }
+            else
+            {
+                MessageBox.Show("przegrales");
+            }
         }
     }
 }

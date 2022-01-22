@@ -11,7 +11,7 @@ namespace Kolo_fortuny
             name = _name;
         }
         public string name;
-        private int money;
+        public int money;
         public void kup(int ile) {
             if (money - ile > 0) { 
                 money -= ile;

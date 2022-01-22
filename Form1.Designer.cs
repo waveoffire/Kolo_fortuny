@@ -42,6 +42,8 @@ namespace Kolo_fortuny
             this.label3 = new System.Windows.Forms.Label();
             this.GraczLabel = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +74,7 @@ namespace Kolo_fortuny
             this.Potwierdz.Name = "Potwierdz";
             this.Potwierdz.Size = new System.Drawing.Size(156, 54);
             this.Potwierdz.TabIndex = 2;
-            this.Potwierdz.Text = "Potwierdz";
+            this.Potwierdz.Text = "Potwierdź";
             this.Potwierdz.UseVisualStyleBackColor = true;
             this.Potwierdz.Click += new System.EventHandler(this.button1_Click);
             this.Potwierdz.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress_1);
@@ -169,11 +171,31 @@ namespace Kolo_fortuny
             this.label4.TabIndex = 11;
             this.label4.Text = "Stan konta:";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1111, 788);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(156, 54);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Zgadnij hasło";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(611, 803);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(494, 39);
+            this.textBox1.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 956);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.GraczLabel);
             this.Controls.Add(this.label3);
@@ -210,6 +232,8 @@ namespace Kolo_fortuny
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label GraczLabel;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

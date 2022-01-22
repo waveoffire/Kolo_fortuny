@@ -34,7 +34,7 @@ namespace Kolo_fortuny
             haslo2.szyfruj();
             HasloLabel.Text = haslo2.Wyswietl();
             KategoriaLabel.Text = haslo2.kategoria;
-            kolo2.losujNagrody();
+            //kolo2.losujNagrody();
         }
 
    
@@ -91,7 +91,10 @@ namespace Kolo_fortuny
                     gracz2.kup(200);
                     money.Text = gracz2.Wyswietl() + " zł";
                     HasloLabel.Text = haslo2.Wyswietl();
-                 }        
+                 }
+                kolo2.kat = 0;
+                Bitmap img = (Bitmap)pictureBox1.Image;
+                pictureBox1.Image = kolo2.RotateImage(img, -kolo2.zmiana);
             }
         }
 
@@ -103,15 +106,34 @@ namespace Kolo_fortuny
                 var random = kolo2.losuj();
                 nagroda = kolo2.wezNagrode(random);
                 Bitmap img = (Bitmap)pictureBox1.Image;
-                var l = 0;
-                for(var i = 0; i < 20* random; i++)
+                pictureBox1.Image = kolo2.RotateImage(img, 0);
+                kolo2.kat = 9;
+                kolo2.zmiana = random * 18+9;
+                
+                for (var i = 0;  i < 20*9 + random; i++)
                 {
-                    l += 18;
-                    pictureBox1.Image = kolo2.RotateImage(img, l);
+                    
+                    kolo2.kat += 18;
+                    
+                    pictureBox1.Image = kolo2.RotateImage(img, kolo2.kat);
                     await Task.Delay(1 * ((i + 1) / 100));
+                    
                 }
-                wylosowano.Text = nagroda.ToString() + " zł";
+                if (nagroda == 0)
+                {
+                    wylosowano.Text = "Bankrut";
+                    gracz2.money = 0;
+                }
+                else if (nagroda == -1)
+                {
+                    wylosowano.Text = "STOP";
+                }
+                else
+                {
 
+                
+                wylosowano.Text = nagroda.ToString() + " zł";
+                }
 
 
             }
@@ -124,7 +146,10 @@ namespace Kolo_fortuny
             
         }
 
-
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            haslo2.zgadnijCalosc(textBox1.Text);
+        }
     }
 
 }

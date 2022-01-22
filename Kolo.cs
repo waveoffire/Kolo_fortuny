@@ -8,8 +8,10 @@ namespace Kolo_fortuny
     
     class Kolo
     {
-        private int[] nagrody = new int[20];
+        private int[] nagrody = new int[] { 425, 225, 375, -1, 25, 275, 400, 325, 100, 0, 200, 50, 350, 3000, 175, 475, 300, 125, 75, 500 };
         public bool klik = false;
+        public int kat =0;
+        public int zmiana = 0;
         public Bitmap RotateImage(Bitmap bmp, float angle)
         {
             Bitmap rotatedImage = new Bitmap(bmp.Width, bmp.Height);
@@ -23,15 +25,7 @@ namespace Kolo_fortuny
             }
             return rotatedImage;
         }
-        public void losujNagrody()
-        {
-            for (var i = 0; i < 20; i++)
-            {
-                var rand = new Random();
-                nagrody[i] = (rand.Next(10) + 1)*100;
-            }
-             
-        }
+
         public int losuj()
         {
             var rand = new Random();
