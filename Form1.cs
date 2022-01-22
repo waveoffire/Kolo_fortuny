@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,7 +15,9 @@ namespace Kolo_fortuny
     {
         char litera;
         Haslo haslo2 = new Haslo("Programowanie obiektowe","Przedmioty");
-        
+        int nagroda = 0;
+
+
         public Form1()
         {
             InitializeComponent();
@@ -75,6 +78,32 @@ namespace Kolo_fortuny
             }
         }
 
+        private async  void pictureBox1_Click(object sender, EventArgs e)
 
+        {
+            var Kolo2 = new Kolo();
+            var random = Kolo2.losuj();
+            var nagroda = Kolo2.wezNagrode(random);
+            Bitmap img = (Bitmap)pictureBox1.Image;
+            
+
+            var l = 0;
+                for(var i = 0; i < 20* random; i++) {
+                l += 18;
+                pictureBox1.Image = Kolo2.RotateImage(img, l);
+                    
+                    await Task.Delay(1 * ((i + 1) / 10));
+
+            }
+
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+              
+
+            
+        }
     }
+
 }

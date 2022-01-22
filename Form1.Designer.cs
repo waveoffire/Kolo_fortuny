@@ -29,10 +29,13 @@ namespace Kolo_fortuny
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.HasloLabel = new System.Windows.Forms.Label();
             this.Wcisnieto = new System.Windows.Forms.Label();
             this.Potwierdz = new System.Windows.Forms.Button();
             this.KategoriaLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // HasloLabel
@@ -49,7 +52,7 @@ namespace Kolo_fortuny
             // 
             this.Wcisnieto.AutoSize = true;
             this.Wcisnieto.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Wcisnieto.Location = new System.Drawing.Point(295, 577);
+            this.Wcisnieto.Location = new System.Drawing.Point(696, 630);
             this.Wcisnieto.Name = "Wcisnieto";
             this.Wcisnieto.Size = new System.Drawing.Size(130, 54);
             this.Wcisnieto.TabIndex = 1;
@@ -57,7 +60,7 @@ namespace Kolo_fortuny
             // 
             // Potwierdz
             // 
-            this.Potwierdz.Location = new System.Drawing.Point(476, 577);
+            this.Potwierdz.Location = new System.Drawing.Point(854, 630);
             this.Potwierdz.Name = "Potwierdz";
             this.Potwierdz.Size = new System.Drawing.Size(156, 54);
             this.Potwierdz.TabIndex = 2;
@@ -76,11 +79,24 @@ namespace Kolo_fortuny
             this.KategoriaLabel.Text = "PROGRAMOWANIE";
             this.KategoriaLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(24, 222);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 400);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.pictureBox1_Paint);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1022, 696);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.KategoriaLabel);
             this.Controls.Add(this.Potwierdz);
             this.Controls.Add(this.Wcisnieto);
@@ -89,6 +105,7 @@ namespace Kolo_fortuny
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress_1);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,6 +117,7 @@ namespace Kolo_fortuny
         private System.Windows.Forms.Label Wcisnieto;
         private System.Windows.Forms.Button Potwierdz;
         private System.Windows.Forms.Label KategoriaLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
