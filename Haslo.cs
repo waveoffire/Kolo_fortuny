@@ -85,15 +85,17 @@ namespace Kolo_fortuny
             return zgadnieto;
         }
 
-        public void zgadnijCalosc(string _haslo)
+        public bool zgadnijCalosc(string _haslo)
         {
             if (_haslo.ToLower() == text.ToLower())
             {
-                MessageBox.Show("Wygrywasz");
+                MessageBox.Show("Zgadłeś hasło!!!");
+                return true;
             }
             else
             {
-                MessageBox.Show("przegrales");
+                MessageBox.Show("To nie to hasło!");
+                return false;
             }
         }
     }

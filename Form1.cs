@@ -14,24 +14,30 @@ namespace Kolo_fortuny
 {
     public partial class Form1 : Form
     {
-        char litera;
-        static string[] lines = File.ReadAllLines("hasla.txt");
-        static Random r = new Random();
-        static int randomLineNumber = r.Next(0, lines.Length - 1);
-        static string line = lines[randomLineNumber];
-
-        Haslo haslo2 = new Haslo(line.Split(";")[1], line.Split(";")[0]);
-        Kolo kolo2 = new Kolo();
-        Gracz gracz2 = new Gracz("Marek");
-
+        char litera= '\0';
+        string line;
         int nagroda = 0;
-
-
+        int runda = 1;
+        Haslo haslo2;
+        Kolo kolo2;
+        Gracz[] gracze = new Gracz[] { new Gracz("Marek"), new Gracz("Adam") , new Gracz("Marta") };
+        int numer_gracza = 0;
+        Gracz gracz2;
+        Gra gra1;
         public Form1()
         {
+            changeHaslo();
+            kolo2 = new Kolo();
+            gracz2 = gracze[numer_gracza];
+            gra1 = new Gra();
+            
+
+
             InitializeComponent();
-           
-            haslo2.szyfruj();
+            
+            RundaLabel.Text = runda.ToString();
+            GraczLabel.Text = gracz2.name;
+            
             HasloLabel.Text = haslo2.Wyswietl();
             KategoriaLabel.Text = haslo2.kategoria;
             //kolo2.losujNagrody();
@@ -46,34 +52,28 @@ namespace Kolo_fortuny
 
         private void Form1_KeyPress_1(object sender, KeyPressEventArgs e)
         {
-            bool spolgloska = false;
-            if (((e.KeyChar >= 65 && e.KeyChar <= 90)|| (e.KeyChar >= 97 && e.KeyChar <= 122) || e.KeyChar >= 140))
+    
+            if (gra1.SprawdzLitere(e.KeyChar) == true)
             {
                 Wcisnieto.Text = e.KeyChar.ToString();
                 litera = e.KeyChar;
-                if (e.KeyChar == 97|| e.KeyChar == 65|| e.KeyChar == 97|| e.KeyChar == 69||
-                    e.KeyChar == 101|| e.KeyChar == 105|| e.KeyChar == 73|| e.KeyChar == 79|| e.KeyChar == 97|| e.KeyChar == 111||
-                    e.KeyChar == 89|| e.KeyChar == 121 || e.KeyChar == 243 || e.KeyChar == 261 || e.KeyChar == 281
-                    || e.KeyChar == 211 || e.KeyChar == 260 || e.KeyChar == 280
-                    )
+                if (gra1.SprawdzSpol(e.KeyChar) == true)
                 {
-                    spolgloska = true;
+                    Potwierdz.Text = "Kup";
+                }
+                else
+                {
+                    Potwierdz.Text = "Potwierdź";
                 }
             }
-            if (spolgloska == true)
-            {
-                Potwierdz.Text = "Kup";
-            }
-            else
-            {
-                Potwierdz.Text = "Potwierdź";
-            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (kolo2.klik == true) 
-            { 
+            if (kolo2.klik == true&& litera!= '\0') 
+            {
+               
                 if (Potwierdz.Text == "Potwierdź") 
                 {
                     var zgadniete = haslo2.zgadnij(litera);
@@ -83,18 +83,28 @@ namespace Kolo_fortuny
                         gracz2.dodaj(zgadniete * nagroda);
                         money.Text=gracz2.Wyswietl()+" zł";
                     }
+                    else
+                    {
+                        changePlayer();
+                    }
                     kolo2.klik = false;
+                    litera = '\0';
+                    Wcisnieto.Text = "Wpisz litere na klawiaturze";
+                    kolo2.kat = 0;
+                    Image img = (Image)pictureBox1.Image;
+                    pictureBox1.Image = kolo2.RotateImage(img, -kolo2.zmiana);
                 }
                 else
                 {
-                    var zgadniete = haslo2.zgadnij(litera);
-                    gracz2.kup(200);
-                    money.Text = gracz2.Wyswietl() + " zł";
-                    HasloLabel.Text = haslo2.Wyswietl();
+                    if (gracz2.kup(200))
+                    {
+                        var zgadniete = haslo2.zgadnij(litera);
+                        money.Text = gracz2.Wyswietl() + " zł";
+                        HasloLabel.Text = haslo2.Wyswietl();
+                    }
+                    
                  }
-                kolo2.kat = 0;
-                Bitmap img = (Bitmap)pictureBox1.Image;
-                pictureBox1.Image = kolo2.RotateImage(img, -kolo2.zmiana);
+
             }
         }
 
@@ -105,28 +115,43 @@ namespace Kolo_fortuny
                 kolo2.klik = true;
                 var random = kolo2.losuj();
                 nagroda = kolo2.wezNagrode(random);
-                Bitmap img = (Bitmap)pictureBox1.Image;
-                pictureBox1.Image = kolo2.RotateImage(img, 0);
+                
+                
+                pictureBox1.Image.Dispose();
+                pictureBox1.InitialImage.Dispose();
+                pictureBox1.Image = null;        
+                pictureBox1.ImageLocation = null;
+                pictureBox1.Update();
+                pictureBox1.Image = Image.FromFile(@"wheel.png");
+                pictureBox1.Update();
+
+
                 kolo2.kat = 9;
                 kolo2.zmiana = random * 18+9;
+                Image img = (Image)pictureBox1.Image;
+                pictureBox1.Image = kolo2.RotateImage(img, 0);
                 
-                for (var i = 0;  i < 20*9 + random; i++)
+                for (var i = 0;  i < 20 + random; i++)
                 {
                     
                     kolo2.kat += 18;
                     
                     pictureBox1.Image = kolo2.RotateImage(img, kolo2.kat);
-                    await Task.Delay(1 * ((i + 1) / 100));
+                    await Task.Delay(1 * ((i + 1) ));
                     
                 }
                 if (nagroda == 0)
                 {
                     wylosowano.Text = "Bankrut";
                     gracz2.money = 0;
+                    changePlayer();
+                    kolo2.klik = false;
                 }
                 else if (nagroda == -1)
                 {
                     wylosowano.Text = "STOP";
+                    changePlayer();
+                    kolo2.klik = false;
                 }
                 else
                 {
@@ -148,7 +173,63 @@ namespace Kolo_fortuny
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            haslo2.zgadnijCalosc(textBox1.Text);
+            if (haslo2.zgadnijCalosc(textBox1.Text))
+            {
+
+                runda++;
+                gracz2.moneyALL += gracz2.money;
+                if (runda > 5)
+                {
+                    MessageBox.Show("Gre wygrywa gracz " + gracz2.name + " z kwotą " + gracz2.moneyALL+" zł") ;
+                }
+                RundaLabel.Text = runda.ToString();
+
+                foreach (Gracz g in gracze)
+                {
+                    g.money = 0;
+                }
+                gracz2 = gracze[0];
+
+
+                changeHaslo();
+                HasloLabel.Text = haslo2.Wyswietl();
+                KategoriaLabel.Text = haslo2.kategoria;
+                GraczLabel.Text = gracz2.name;
+                money.Text = gracz2.money.ToString() + " zł";
+            }
+            else
+            {
+
+                changePlayer();
+                
+            }
+        }
+
+        private void Wcisnieto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void changePlayer()
+        {
+            numer_gracza++;
+            if (numer_gracza >= gracze.Length)
+            {
+                numer_gracza = 0;
+            }
+            gracz2 = gracze[numer_gracza];
+            GraczLabel.Text = gracz2.name;
+            money.Text = gracz2.money.ToString() + " zł";
+        }
+        public void changeHaslo()
+        {
+            string[] lines = File.ReadAllLines("hasla.txt");
+            Random r = new Random();
+            int randomLineNumber = r.Next(0, lines.Length - 1);
+            line = lines[randomLineNumber];
+
+            haslo2 = new Haslo(line.Split(";")[1], line.Split(";")[0]);
+            haslo2.szyfruj();
         }
     }
 

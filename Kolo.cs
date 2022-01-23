@@ -12,7 +12,7 @@ namespace Kolo_fortuny
         public bool klik = false;
         public int kat =0;
         public int zmiana = 0;
-        public Bitmap RotateImage(Bitmap bmp, float angle)
+        public Image RotateImage(Image bmp, float angle)
         {
             Bitmap rotatedImage = new Bitmap(bmp.Width, bmp.Height);
             rotatedImage.SetResolution(bmp.HorizontalResolution, bmp.VerticalResolution);

@@ -44,6 +44,8 @@ namespace Kolo_fortuny
             this.label4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.RundaLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,6 +69,7 @@ namespace Kolo_fortuny
             this.Wcisnieto.TabIndex = 1;
             this.Wcisnieto.Text = "Wpisz litere na klawiaturze";
             this.Wcisnieto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.Wcisnieto.Click += new System.EventHandler(this.Wcisnieto_Click);
             // 
             // Potwierdz
             // 
@@ -189,11 +192,33 @@ namespace Kolo_fortuny
             this.textBox1.Size = new System.Drawing.Size(494, 39);
             this.textBox1.TabIndex = 13;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(1072, 292);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(87, 32);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Runda:";
+            // 
+            // RundaLabel
+            // 
+            this.RundaLabel.AutoSize = true;
+            this.RundaLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.RundaLabel.Location = new System.Drawing.Point(1155, 292);
+            this.RundaLabel.Name = "RundaLabel";
+            this.RundaLabel.Size = new System.Drawing.Size(28, 32);
+            this.RundaLabel.TabIndex = 15;
+            this.RundaLabel.Text = "1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1279, 956);
+            this.Controls.Add(this.RundaLabel);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
@@ -234,6 +259,8 @@ namespace Kolo_fortuny
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label RundaLabel;
     }
 }
 

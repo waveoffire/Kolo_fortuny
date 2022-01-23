@@ -12,9 +12,15 @@ namespace Kolo_fortuny
         }
         public string name;
         public int money;
-        public void kup(int ile) {
+        public int moneyALL=0;
+        public bool kup(int ile) {
             if (money - ile > 0) { 
                 money -= ile;
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
         public void dodaj(int ile) {
