@@ -114,15 +114,28 @@ namespace Kolo_fortuny
             {
                 kolo2.klik = true;
                 var random = kolo2.losuj();
-                nagroda = kolo2.wezNagrode(random);
                 
+                if (runda == 1)
+                {
+                    nagroda = kolo2.wezNagrode(random);
+                }
+                else
+                {
+                    nagroda = kolo2.wezNagrode2(random);
+                }
                 
                 pictureBox1.Image.Dispose();
                 pictureBox1.InitialImage.Dispose();
                 pictureBox1.Image = null;        
                 pictureBox1.ImageLocation = null;
                 pictureBox1.Update();
-                pictureBox1.Image = Image.FromFile(@"wheel.png");
+                if (runda == 1) { 
+                    pictureBox1.Image = Image.FromFile(@"wheel.png");
+                }
+                else
+                {
+                    pictureBox1.Image = Image.FromFile(@"wheel2.png");
+                }
                 pictureBox1.Update();
 
 
@@ -178,6 +191,7 @@ namespace Kolo_fortuny
 
                 runda++;
                 gracz2.moneyALL += gracz2.money;
+                pictureBox1.Image = Image.FromFile(@"wheel2.png");
                 if (runda > 5)
                 {
                     MessageBox.Show("Gre wygrywa gracz " + gracz2.name + " z kwotą " + gracz2.moneyALL+" zł") ;
