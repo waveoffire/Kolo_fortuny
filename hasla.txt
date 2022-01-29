@@ -1,11 +1,56 @@
 Przysłowie;NOSIŁ WILK RAZY KILKA PONIEŚLI I WILKA
 Powiedzenie;ROBIĆ COŚ PO ŁEBKACH
+Filmy;Skazani na Shawshank
+Filmy;Ojciec chrzestny
+Filmy;Forrest Gump
+Filmy;Władca Pierścieni
+Filmy;Chłopiec w pasiastej piżamie
+Filmy;Avengers
+Filmy;Gwiezdne wojny
+Filmy;Efekt motyla
+Filmy;Piraci z Karaibów
+Filmy;Harry Potter
+Przedmioty szkolne;historia
+Przedmioty szkolne;informatyka
+Przedmioty szkolne;język angielski
+Przedmioty szkolne;język polski
+Przedmioty szkolne;matematyka
+Przedmioty szkolne;muzyka
+Przedmioty szkolne;plastyka
+Przedmioty szkolne;przyroda
+Przedmioty szkolne;religia
+Przedmioty szkolne;technika
+Przedmioty szkolne;wychowanie do życia w rodzinie
+Przedmioty szkolne;wychowanie fizyczne
 Tytuł Książki;PRZYGODY KOZIOŁKA MATOŁKA
+Tytuł Książki;Dzieci z Bullerbyn
+Tytuł Książki;O psie który jeździł koleją
+Tytuł Książki;Akademia Pana Kleksa
+Tytuł Książki;W pustyni i w puszczy
+Tytuł Książki;Opowieść wigilijna
+Tytuł Książki;Balladyna
+Tytuł Książki;Stary człowiek i morze
 Znana Postać;JUREK OWSIAK
+Znana Postać;Krzysztof Gonciarz
+Znana Postać;Piotr Fronczewski
+Znana Postać;Robert Makłowicz
+Znana Postać;Wojciech Mann
+Znana Postać;Hubert Urbański
+Znana Postać;Magda Gessler
+Znana Postać;Adam Małysz
+Znana Postać;Taco Hemingway
 Czynność w kuchni;GOTOWANIE JAJKA NA MIĘKKO
 Narzędzie;WKRĘTARKA AKUMULATOROWA
+Narzędzie;Prostownik
+Narzędzie;Kompresor
 Przysłowie;IM DALEJ W LAS TYM WIĘCEJ DRZEW
-Zabytkowa budowla na świecie;WIELKI MUR CHIŃSKI
+Budowle na świecie;WIELKI MUR CHIŃSKI
+Budowle na świecie;Biały Dom
+Budowle na świecie;Wieża Eiffla
+Budowle na świecie;Krzywa wieża w Pizie
+Budowle na świecie;Empire State Building
+Budowle na świecie;Pałac Buckingham
+Budowle na świecie;Statua Wolności
 Powiedzenie;BIEDNEMU ZAWSZE WIATR W OCZY
 Powiedzenie;Co na sercu to i na języku
 Powiedzenie;Uderz w stół a nożyce się odezwą

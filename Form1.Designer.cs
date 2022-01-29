@@ -67,7 +67,7 @@ namespace Kolo_fortuny
             this.Wcisnieto.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Wcisnieto.Size = new System.Drawing.Size(494, 54);
             this.Wcisnieto.TabIndex = 1;
-            this.Wcisnieto.Text = "Wpisz litere na klawiaturze";
+            this.Wcisnieto.Text = "Zakręć kołem";
             this.Wcisnieto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Wcisnieto.Click += new System.EventHandler(this.Wcisnieto_Click);
             // 
@@ -183,6 +183,7 @@ namespace Kolo_fortuny
             this.button1.Text = "Zgadnij hasło";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.button1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress_1);
             // 
             // textBox1
             // 
@@ -191,6 +192,7 @@ namespace Kolo_fortuny
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(494, 39);
             this.textBox1.TabIndex = 13;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress_1);
             // 
             // label5
             // 

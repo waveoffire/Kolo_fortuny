@@ -20,7 +20,7 @@ namespace Kolo_fortuny
         int runda = 1;
         Haslo haslo2;
         Kolo kolo2;
-        Gracz[] gracze = new Gracz[] { new Gracz("Marek"), new Gracz("Adam") , new Gracz("Marta") };
+        Gracz[] gracze;
         int numer_gracza = 0;
         Gracz gracz2;
         Gra gra1;
@@ -28,11 +28,17 @@ namespace Kolo_fortuny
         {
             changeHaslo();
             kolo2 = new Kolo();
-            gracz2 = gracze[numer_gracza];
+            string name;
             gra1 = new Gra();
+            int iloscGraczy = Int32.Parse(Gra.ShowDialog("Podaj ilość graczy", "Podaj ilość graczy"));
+            gracze = new Gracz[iloscGraczy];
+            for (int i=0; i < iloscGraczy; i++)
+            {
+                name = Gra.ShowDialog("Podaj nazwe gracza "+(i+1), "Podaj nazwe gracza");
+                gracze[i] = new Gracz(name);
+            }
+            gracz2 = gracze[numer_gracza];
             
-
-
             InitializeComponent();
             
             RundaLabel.Text = runda.ToString();
@@ -89,7 +95,7 @@ namespace Kolo_fortuny
                     }
                     kolo2.klik = false;
                     litera = '\0';
-                    Wcisnieto.Text = "Wpisz litere na klawiaturze";
+                    Wcisnieto.Text = "Zakręć kołem";
                     kolo2.kat = 0;
                     Image img = (Image)pictureBox1.Image;
                     pictureBox1.Image = kolo2.RotateImage(img, -kolo2.zmiana);
@@ -99,6 +105,8 @@ namespace Kolo_fortuny
                     if (gracz2.kup(200))
                     {
                         var zgadniete = haslo2.zgadnij(litera);
+                        litera = '\0';
+                        Wcisnieto.Text = "Wpisz litere na klawiaturze";
                         money.Text = gracz2.Wyswietl() + " zł";
                         HasloLabel.Text = haslo2.Wyswietl();
                     }
@@ -112,6 +120,7 @@ namespace Kolo_fortuny
         {
             if (kolo2.klik == false) 
             {
+                Wcisnieto.Text = "Wpisz litere na klawiaturze";
                 kolo2.klik = true;
                 var random = kolo2.losuj();
                 
@@ -119,11 +128,15 @@ namespace Kolo_fortuny
                 {
                     nagroda = kolo2.wezNagrode(random);
                 }
-                else
+                else if(runda == 2)
                 {
                     nagroda = kolo2.wezNagrode2(random);
                 }
-                
+                else
+                {
+                    nagroda = kolo2.wezNagrode3(random);
+                }
+
                 pictureBox1.Image.Dispose();
                 pictureBox1.InitialImage.Dispose();
                 pictureBox1.Image = null;        
@@ -132,9 +145,13 @@ namespace Kolo_fortuny
                 if (runda == 1) { 
                     pictureBox1.Image = Image.FromFile(@"wheel.png");
                 }
-                else
+                else if(runda == 2)
                 {
                     pictureBox1.Image = Image.FromFile(@"wheel2.png");
+                }
+                else
+                {
+                    pictureBox1.Image = Image.FromFile(@"wheel3.png");
                 }
                 pictureBox1.Update();
 
@@ -186,15 +203,22 @@ namespace Kolo_fortuny
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (haslo2.zgadnijCalosc(textBox1.Text))
+            if (haslo2.zgadnijCalosc(textBox1.Text)==true)
             {
-
+                kolo2.klik = false;
                 runda++;
                 gracz2.moneyALL += gracz2.money;
+                
                 pictureBox1.Image = Image.FromFile(@"wheel2.png");
+                if (runda > 2)
+                {
+                    pictureBox1.Image = Image.FromFile(@"wheel3.png");
+                }
                 if (runda > 5)
                 {
                     MessageBox.Show("Gre wygrywa gracz " + gracz2.name + " z kwotą " + gracz2.moneyALL+" zł") ;
+                    
+                    this.Close();
                 }
                 RundaLabel.Text = runda.ToString();
 
@@ -210,13 +234,18 @@ namespace Kolo_fortuny
                 KategoriaLabel.Text = haslo2.kategoria;
                 GraczLabel.Text = gracz2.name;
                 money.Text = gracz2.money.ToString() + " zł";
+                litera = '\0';
+                Wcisnieto.Text = "Zakręć kołem";
             }
             else
             {
-
+                kolo2.klik = false;
                 changePlayer();
-                
+                litera = '\0';
+                Wcisnieto.Text = "Zakręć kołem";
+
             }
+            
         }
 
         private void Wcisnieto_Click(object sender, EventArgs e)
