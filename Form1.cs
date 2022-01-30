@@ -143,15 +143,15 @@ namespace Kolo_fortuny
                 pictureBox1.ImageLocation = null;
                 pictureBox1.Update();
                 if (runda == 1) { 
-                    pictureBox1.Image = Image.FromFile(@"wheel.png");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\wheel.png");
                 }
                 else if(runda == 2)
                 {
-                    pictureBox1.Image = Image.FromFile(@"wheel2.png");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\wheel2.png");
                 }
                 else
                 {
-                    pictureBox1.Image = Image.FromFile(@"wheel3.png");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\wheel3.png");
                 }
                 pictureBox1.Update();
 
@@ -209,10 +209,10 @@ namespace Kolo_fortuny
                 runda++;
                 gracz2.moneyALL += gracz2.money;
                 
-                pictureBox1.Image = Image.FromFile(@"wheel2.png");
+                pictureBox1.Image = Image.FromFile(@"..\..\..\wheel2.png");
                 if (runda > 2)
                 {
-                    pictureBox1.Image = Image.FromFile(@"wheel3.png");
+                    pictureBox1.Image = Image.FromFile(@"..\..\..\wheel3.png");
                 }
                 if (runda > 5)
                 {
@@ -266,7 +266,7 @@ namespace Kolo_fortuny
         }
         public void changeHaslo()
         {
-            string[] lines = File.ReadAllLines("hasla.txt");
+            string[] lines = File.ReadAllLines(@"..\..\..\hasla.txt");
             Random r = new Random();
             int randomLineNumber = r.Next(0, lines.Length - 1);
             line = lines[randomLineNumber];
